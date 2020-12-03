@@ -6,6 +6,8 @@ namespace Common
     {
         public static readonly string day2p1 = "day2p1.txt";
         public static readonly string day2p1s1 = "day2p1s1.txt";
+        public static readonly string day3p1 = "day3p1.txt";
+        public static readonly string day3p1s1 = "day3p1s1.txt";
 
         public string[] GetInput(string day)
         {
