@@ -28,7 +28,7 @@ namespace day3
 
         private static void SolvePart1()
         {
-            var originalInput = inputFetcher.GetInput(InputFetcher.day3p1);
+            var originalInput = inputFetcher.GetInputAsLines(InputFetcher.day3p1);
             maxWidth = originalInput[0].Length;
             treesEncountered = 0;
             x = 0;
@@ -51,7 +51,7 @@ namespace day3
 
         private static void SolvePart2()
         {
-            var originalInput = inputFetcher.GetInput(InputFetcher.day3p1);
+            var originalInput = inputFetcher.GetInputAsLines(InputFetcher.day3p1);
             maxWidth = originalInput[0].Length;
             var possibleMoves = new[]
             {

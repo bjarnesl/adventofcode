@@ -16,7 +16,7 @@ namespace day2
 
         private static void RunPart1()
         {
-            var input = inputFetcher.GetInput(InputFetcher.day2p1);
+            var input = inputFetcher.GetInputAsLines(InputFetcher.day2p1);
             var inputs = input.Select(i => new PasswordInputP1(i));
             var validInputs = inputs.Where(i => i.IsValid());
             var invalidInputs = inputs.Where(i => !i.IsValid());
@@ -25,7 +25,7 @@ namespace day2
 
         private static void RunPart2()
         {
-            var input = inputFetcher.GetInput(InputFetcher.day2p1);
+            var input = inputFetcher.GetInputAsLines(InputFetcher.day2p1);
             var inputs = input.Select(i => new PasswordInputP2(i));
             var validInputs = inputs.Where(i => i.IsValid());
             var invalidInputs = inputs.Where(i => !i.IsValid());
