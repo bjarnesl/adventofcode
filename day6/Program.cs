@@ -39,16 +39,13 @@ namespace day6
             {
                 var answers = group.Split(new string[] { "\r\n" },
                                StringSplitOptions.RemoveEmptyEntries).ToList();
-                List<List<char>> generated = new List<List<char>>();
-                foreach (var item in answers)
-                {
-                    var charlist = item.Select(c => c).ToList();
-                    generated.Add(charlist);
-                }
+                List<List<char>> generated = answers.Select(l => l.Select(c => c).ToList()).ToList();
                 var intersection = generated.Aggregate((previousList, nextList) => previousList.Intersect(nextList).ToList());
-                answerCount += intersection.Select(c =>c).Count();
+                answerCount += intersection.Select(c => c).Count();
             }
             Console.WriteLine($"Unique answers: {answerCount}");
         }
+
+      
     }
 }
