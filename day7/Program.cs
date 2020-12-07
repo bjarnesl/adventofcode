@@ -52,37 +52,50 @@ namespace day7
 
         private static void part2()
         {
-            var input = fetcher.GetInputAsLines(InputFetcher.day7p1s1);
+            var input = fetcher.GetInputAsLines(InputFetcher.day7p1);
             foreach (var item in input)
             {
                 string definitionSplitter = "bags contain";
                 var inputsplit = item.Split(definitionSplitter);
                 var name = inputsplit[0].Substring(0, inputsplit[0].Length).Trim();
                 var children = inputsplit[1].Split(',');
+                var childDefs = new Dictionary<string, int>();
                 foreach (var child in children)
                 {
                     var childef = child.Trim().Split(' ');
-                    var number = childef[0];
+                    int number = 0;
+                    if(child ==" no other bags.")
+                    {
+                        break;
+                    }
+                    number = int.Parse(childef[0]);
                     var desc = string.Join(' ', childef[1], childef[2]);
-                    BagRuleRepo.Add(name, new[] { desc });
+                    childDefs.Add(desc, number);
                 }
+                BagRuleRepov2.Add(new Bag(name,childDefs));
 
             }
             List<string> result = new List<string>();
-            AddHolderAndCheckIfIsChild("shiny gold", result);
-            var total = result.Distinct();
-            Console.WriteLine($"Total possible holders: {total.Count()}");
+            var a = BagRuleRepov2.Rules;
+            int resultcount = 0;
+           
+            CountRequiredNumberOfBags(BagRuleRepov2.Rules.Single(b => b.Name == "shiny gold"), ref resultcount);
+
+            Console.WriteLine($"Total possible holders: {resultcount-1}");
 
         }
 
-        public static void AddHolderAndCheckIfIsChildWithCount(string name, List<string> result)
+      public static void  CountRequiredNumberOfBags(Bag bag, ref int counter)
         {
-            var candidateRules = BagRuleRepo.Rules.Where(r => r.Value.Contains(name));
-            foreach (var rule in candidateRules)
+           
+            counter++;
+            foreach (var child in bag.childMinimum)
             {
-                AddHolderAndCheckIfIsChild(rule.Key, result);
+                int childrendsvalue = 0;
+                CountRequiredNumberOfBags(BagRuleRepov2.Rules.Single(b => b.Name== child.Key), ref childrendsvalue);
+                counter += child.Value * childrendsvalue;
             }
-            result.AddRange(candidateRules.Select(r => r.Key));
+           
         }
 
     }
@@ -90,17 +103,9 @@ namespace day7
     static class BagRuleRepov2
     {
         public static List<Bag> Rules = new List<Bag>();
-        public static void Add(string name, string[] children)
+        public static void Add(Bag bag)
         {
-            if (!Rules.Any(b => b.Name == name))
-            {
-                Rules.Add(name, children);
-            }
-            else
-            {
-                Rules[name] = Rules[name].Union(children).Distinct().ToArray();
-            }
-
+            Rules.Add(bag);
 
         }
     }
@@ -109,6 +114,11 @@ namespace day7
     {
         public string Name;
         public Dictionary<string, int> childMinimum = new Dictionary<string, int>();
+        public Bag(string name, Dictionary<string,int> childMinimums)
+        {
+            Name = name;
+            childMinimum = childMinimums;
+        }
 
     }
 
