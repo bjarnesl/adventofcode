@@ -20,6 +20,7 @@ namespace Common
         public static readonly string day7p1 = "day7p1.txt";
         public static readonly string day7p2s1 = "day7p2s1.txt";
         public static readonly string day8p1s1 = "day8p1s1.txt";
+        public static readonly string day8p1 = "day8p1.txt";
 
         public static string[] GetInputAsLines(string day)
         {
