@@ -7,7 +7,6 @@ namespace day6
 {
     class Program
     {
-        private static InputFetcher fetcher = new InputFetcher();
         static void Main(string[] args)
         {
             part1();
@@ -17,7 +16,7 @@ namespace day6
         static void part1()
         {
             int answerCount = 0;
-            var input = fetcher.GetInputAsString(InputFetcher.day6p1);
+            var input = InputFetcher.GetInputAsString(InputFetcher.day6p1);
             var groups = input.Split(new string[] { "\r\n\r\n" },
                                StringSplitOptions.RemoveEmptyEntries); 
             foreach (var group in groups)
@@ -32,7 +31,7 @@ namespace day6
         static void part2()
         {
             int answerCount = 0;
-            var input = fetcher.GetInputAsString(InputFetcher.day6p1);
+            var input = InputFetcher.GetInputAsString(InputFetcher.day6p1);
             var groups = input.Split(new string[] { "\r\n\r\n" },
                                StringSplitOptions.RemoveEmptyEntries);
             foreach (var group in groups)

@@ -9,7 +9,6 @@ namespace day4
     class Program
     {
 
-        private static InputFetcher fetcher = new InputFetcher();
         static void Main(string[] args)
         {
 
@@ -20,7 +19,7 @@ namespace day4
         private static void RunPart1()
         {
             var validPassportCounter = 0;
-            var input = fetcher.GetInputAsString(InputFetcher.day4p1);
+            var input = InputFetcher.GetInputAsString(InputFetcher.day4p1);
             var passports = input.Split(new string[] { "\r\n\r\n" },
                                StringSplitOptions.RemoveEmptyEntries);
             foreach (var passport in passports)
@@ -38,7 +37,7 @@ namespace day4
         private static void RunPart2()
         {
             var validPassportCounter = 0;
-            var input = fetcher.GetInputAsString(InputFetcher.day4p1);
+            var input = InputFetcher.GetInputAsString(InputFetcher.day4p1);
             var passports = input.Split(new string[] { "\r\n\r\n" },
                                StringSplitOptions.RemoveEmptyEntries);
             foreach (var passport in passports)

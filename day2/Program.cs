@@ -6,7 +6,6 @@ namespace day2
 {
     class Program
     {
-        static readonly InputFetcher inputFetcher = new InputFetcher();
         static void Main(string[] args)
         {
             Console.WriteLine("Starting passsword tests");
@@ -16,7 +15,7 @@ namespace day2
 
         private static void RunPart1()
         {
-            var input = inputFetcher.GetInputAsLines(InputFetcher.day2p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day2p1);
             var inputs = input.Select(i => new PasswordInputP1(i));
             var validInputs = inputs.Where(i => i.IsValid());
             var invalidInputs = inputs.Where(i => !i.IsValid());
@@ -25,7 +24,7 @@ namespace day2
 
         private static void RunPart2()
         {
-            var input = inputFetcher.GetInputAsLines(InputFetcher.day2p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day2p1);
             var inputs = input.Select(i => new PasswordInputP2(i));
             var validInputs = inputs.Where(i => i.IsValid());
             var invalidInputs = inputs.Where(i => !i.IsValid());

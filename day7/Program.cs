@@ -7,7 +7,6 @@ namespace day7
 {
     class Program
     {
-        private static InputFetcher fetcher = new InputFetcher();
         static void Main(string[] args)
         {
             part2();
@@ -16,7 +15,7 @@ namespace day7
 
         private static void part1()
         {
-            var input = fetcher.GetInputAsLines(InputFetcher.day7p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day7p1);
             foreach (var item in input)
             {
                 string definitionSplitter = "bags contain";
@@ -52,7 +51,7 @@ namespace day7
 
         private static void part2()
         {
-            var input = fetcher.GetInputAsLines(InputFetcher.day7p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day7p1);
             foreach (var item in input)
             {
                 string definitionSplitter = "bags contain";

@@ -2,7 +2,7 @@
 
 namespace Common
 {
-    public class InputFetcher
+    public static class InputFetcher
     {
         public static readonly string day2p1 = "day2p1.txt";
         public static readonly string day2p1s1 = "day2p1s1.txt";
@@ -19,14 +19,15 @@ namespace Common
         public static readonly string day7p1s1 = "day7p1s1.txt";
         public static readonly string day7p1 = "day7p1.txt";
         public static readonly string day7p2s1 = "day7p2s1.txt";
+        public static readonly string day8p1s1 = "day8p1s1.txt";
 
-        public string[] GetInputAsLines(string day)
+        public static string[] GetInputAsLines(string day)
         {
             return System.IO.File.ReadAllLines(string.Format("input/{0}", day));
 
         }
 
-        public string GetInputAsString(string day)
+        public static string GetInputAsString(string day)
         {
             return System.IO.File.ReadAllText(string.Format("input/{0}", day));
 

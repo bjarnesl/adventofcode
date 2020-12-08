@@ -9,7 +9,6 @@ namespace day5
     class Program
     {
 
-        private static InputFetcher fetcher = new InputFetcher();
         static void Main(string[] args)
         {
             part1();
@@ -18,7 +17,7 @@ namespace day5
 
         private static void part1()
         {
-            var input = fetcher.GetInputAsLines(InputFetcher.day5p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day5p1);
             var maxId = 0;
             foreach (var item in input)
             {
@@ -57,7 +56,7 @@ namespace day5
         }
         private static void part2()
         {
-            var input = fetcher.GetInputAsLines(InputFetcher.day5p1);
+            var input = InputFetcher.GetInputAsLines(InputFetcher.day5p1);
             var maxId = 896;
             var possibleIds = Enumerable.Range(8,888);
             foreach (var item in input)
